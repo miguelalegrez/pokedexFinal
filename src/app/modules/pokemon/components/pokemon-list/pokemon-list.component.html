@@ -9,11 +9,14 @@
       </ng-container>
     </div>
   </mat-tab>
-  <mat-tab label="Favourites">
+  <mat-tab>
     <div class="grid-container">
-      <ng-container *ngIf="pokemons && pokemons.length > 0">
+      <ng-container *ngIf="favoritePokemon.length === 0">
+        <p>No hay pokemons añadidos a favoritos</p>
+      </ng-container>
+      <ng-container *ngIf="pokemons && favoritePokemon.length > 0">
         <app-pokemon-card
-          *ngFor="let pokemon of pokemons"
+          *ngFor="let pokemon of favoritePokemon"
           [pokemon]="pokemon"
         ></app-pokemon-card>
       </ng-container>

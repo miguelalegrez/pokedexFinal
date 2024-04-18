@@ -12,4 +12,7 @@
     <p>Types: {{ pokemon.types.join(", ") }}</p>
     <p>Abilities: {{ pokemon.abilities }}</p>
   </div>
+  <button mat-raised-button (click)="addFavoritePokemon(pokemon)">
+    Add to favourites
+  </button>
 </div>

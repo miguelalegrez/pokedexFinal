@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { PokemonService } from '../../../../core/services/pokemon.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTabsModule } from '@angular/material/tabs';
+import { FavouritePokemonListComponent } from '../favourite-pokemon-list/favourite-pokemon-list.component';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -19,14 +20,18 @@ import { MatTabsModule } from '@angular/material/tabs';
     FormsModule,
     HttpClientModule,
     MatTabsModule,
+    FavouritePokemonListComponent,
   ],
   styleUrls: ['./pokemon-list.component.css'],
   providers: [], // Proporcionar PokemonUtils aquí
 })
 export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[] = [];
+  favoritePokemon: Pokemon[] = [];
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService) {
+    this.favoritePokemon = pokemonService.getFavoritePokemon();
+  }
 
   ngOnInit(): void {
     this.pokemonService

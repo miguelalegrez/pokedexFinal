@@ -7,6 +7,8 @@ import { Observable, forkJoin, map, mergeMap } from 'rxjs';
   providedIn: 'root',
 })
 export class PokemonService {
+  private favoritePokemons: Pokemon[] = [];
+
   constructor(private http: HttpClient) {}
 
   fetchPokemons(limit: number, offset: number): Observable<Pokemon[]> {
@@ -40,4 +42,15 @@ export class PokemonService {
       }))
     );
   }
+
+  addFavoritePokemon(pokemon: Pokemon): void {
+    this.favoritePokemons.push(pokemon);
+  }
+
+  //Al ser una propiedad privada debo de crear un getter para el array
+  getFavoritePokemon(): Pokemon[] {
+    return this.favoritePokemons;
+  }
+
+  
 }
