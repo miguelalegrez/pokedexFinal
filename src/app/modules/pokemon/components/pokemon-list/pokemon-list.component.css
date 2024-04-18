@@ -1,0 +1,92 @@
+
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    --color-primary: #3a5da9; /* Define una variable de color primario */
+  }
+  .grid-container{
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: repeat(4, auto);
+      gap: 10px;
+      margin: 20px;
+  }
+  
+  .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      
+    }
+    
+    .search-box {
+      /* Estilos para el cuadro de búsqueda */
+      width: 200px;
+      height: 30px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    
+    .search-button {
+      border-radius: 5px;
+      background-color: var(--color-primary);
+      color: white;
+      width: 100px;
+      height: 40px;
+      font-size: 14px;
+      margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
+      margin-right: 30px;
+    }
+    .filter-button{
+      border-radius: 5px;
+      background-color: var(--color-primary);
+      color: white;
+      width: 100px;
+      height: 40px;
+      font-size: 14px;
+      margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
+      margin-right: 10px;
+    }
+
+    /* Estilo para los tabs */
+      
+    .tab-label {
+      background-color: var(--color-primary) !important; 
+      color: white !important; 
+    }
+  
+  .buttons-front{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+  }
+  
+  .next-button{
+      border-radius: 5px;
+      background-color: var(--color-primary);
+      color: white;
+      width:200px;
+      height: 60px;
+      font-size:20px;
+  }
+  
+  .load-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    width: 100%;
+    margin-top: 20px; 
+  }
+  
+  /*
+  label{
+    margin: 5px;
+    width:100px;
+    height:30px;
+  }
+  */

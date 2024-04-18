@@ -1,0 +1,15 @@
+<div class="pokemon-card" [ngClass]="getBackgroundClass(pokemon.types[0])">
+  <!--types, que es una lista de cadenas que representan los tipos del Pokémon.
+    Al acceder a pokemon.types[0], estás obteniendo el primer elemento de esta
+    lista, es decir, el primer tipo del Pokémon.-->
+  <div class="img-style">
+    <img class="pokemon-img" [src]="pokemon.imageUrl" alt="Pokemon Image" />
+  </div>
+  <div class="pokemon-info">
+    <h2>{{ pokemon.name }}</h2>
+    <p>ID: {{ pokemon.id }}</p>
+    <p>Size: {{ pokemon.size }}</p>
+    <p>Types: {{ pokemon.types.join(", ") }}</p>
+    <p>Abilities: {{ pokemon.abilities }}</p>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<mat-tab-group>
+  <mat-tab label="Pokemon List">
+    <div class="grid-container">
+      <ng-container *ngIf="pokemons && pokemons.length > 0">
+        <app-pokemon-card
+          *ngFor="let pokemon of pokemons"
+          [pokemon]="pokemon"
+        ></app-pokemon-card>
+      </ng-container>
+    </div>
+  </mat-tab>
+  <mat-tab label="Favourites">
+    <div class="grid-container">
+      <ng-container *ngIf="pokemons && pokemons.length > 0">
+        <app-pokemon-card
+          *ngFor="let pokemon of pokemons"
+          [pokemon]="pokemon"
+        ></app-pokemon-card>
+      </ng-container>
+    </div>
+  </mat-tab>
+</mat-tab-group>

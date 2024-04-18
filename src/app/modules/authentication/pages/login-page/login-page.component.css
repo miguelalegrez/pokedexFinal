@@ -1,0 +1,16 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.spinner{
+    margin-right: auto;
+    margin-left: auto;
+}
