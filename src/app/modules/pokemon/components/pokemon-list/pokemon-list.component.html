@@ -1,3 +1,37 @@
+<div class="top-container">
+  <input
+    class="search-box"
+    type="text"
+    [(ngModel)]="searchValue"
+    placeholder="Search Pokemon..."
+  />
+  <button (click)="searchPokemon()" class="search-button">Search</button>
+  <form action="#">
+    <label for="filter">Filter:</label>
+    <select name="Type" id="pokemon-types" [(ngModel)]="filterValue">
+      <option value="water">Water</option>
+      <option value="grass">Grass</option>
+      <option value="fire">Fire</option>
+      <option value="electric">Electric</option>
+    </select>
+    <button type="button" class="filter-button">Filter</button>
+    <button type="button" class="filter-button">Clean Filter</button>
+  </form>
+</div>
+<div class="favorite-counter-badge">
+  <div
+    matBadge="{{ favoriteCounter }}"
+    matBadgeOverlap="false"
+    class="demo-section"
+  >
+    Favorites
+  </div>
+</div>
+<!-- Filtro de búsqueda -->
+<!-- Mostrar el Pokémon encontrado si existe -->
+<ng-container class="grid-container" *ngIf="foundPokemon">
+  <app-pokemon-card [pokemon]="foundPokemon"></app-pokemon-card>
+</ng-container>
 <mat-tab-group>
   <mat-tab label="Pokemon List">
     <div class="grid-container">

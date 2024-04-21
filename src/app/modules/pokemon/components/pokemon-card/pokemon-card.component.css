@@ -29,7 +29,22 @@
       border: 2px solid black;
   
   }
-  
+
+  .favorite-buttons{
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+  .favorite-icon{
+    background-color: gray;
+    color: white;
+  }  
+
+  .delete-icon{
+    background-color: gray;
+    color: white;
+  }
   /*Aplicamos estilos segun el tipo de pokemon*/
   
   .fire-background {

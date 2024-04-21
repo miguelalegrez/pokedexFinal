@@ -4,11 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PokemonService } from '../../../../core/services/pokemon.service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-pokemon-card',
   standalone: true,
-  imports: [FormsModule, CommonModule, MatButtonModule],
+  imports: [
+    FormsModule,
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
+  ],
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.css',
 })
@@ -42,5 +50,9 @@ export class PokemonCardComponent {
 
   addFavoritePokemon(pokemon: Pokemon) {
     this.pokemonService.addFavoritePokemon(pokemon);
+  }
+
+  deleteFavoritePokemon(pokemon: Pokemon) {
+    this.pokemonService.deleteFavoritePokemon(pokemon);
   }
 }

@@ -1,3 +1,8 @@
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
+
 <div class="pokemon-card" [ngClass]="getBackgroundClass(pokemon.types[0])">
   <!--types, que es una lista de cadenas que representan los tipos del Pokémon.
     Al acceder a pokemon.types[0], estás obteniendo el primer elemento de esta
@@ -11,8 +16,28 @@
     <p>Size: {{ pokemon.size }}</p>
     <p>Types: {{ pokemon.types.join(", ") }}</p>
     <p>Abilities: {{ pokemon.abilities }}</p>
+
+    <div class="favorite-buttons">
+      <button
+        class="favorite-icon"
+        mat-mini-fab
+        aria-label="heart icon"
+        matTooltip="Add to favorite"
+        (click)="addFavoritePokemon(pokemon)"
+      >
+        <!-- Icono de corazón -->
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button
+        class="delete-icon"
+        mat-mini-fab
+        aria-label="trash icon"
+        matTooltip="Delete"
+        (click)="deleteFavoritePokemon(pokemon)"
+      >
+        <!-- Icono de basura -->
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </div>
-  <button mat-raised-button (click)="addFavoritePokemon(pokemon)">
-    Add to favourites
-  </button>
 </div>

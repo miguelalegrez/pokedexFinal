@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../../core/services/authentication.service';
+import { PokemonListComponent } from '../../components/pokemon-list/pokemon-list.component';
+import { HeaderComponent } from '../../../../core/components/header/header.component';
 
 @Component({
   selector: 'app-pokemon-page',
   standalone: true,
-  imports: [],
   templateUrl: './pokemon-page.component.html',
   styleUrl: './pokemon-page.component.css',
+  imports: [PokemonListComponent, HeaderComponent],
 })
 export class PokemonPageComponent implements OnInit {
   userToken: string | null;

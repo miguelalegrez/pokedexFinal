@@ -13,11 +13,12 @@
       margin: 20px;
   }
   
-  .search-container {
+  .top-container {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 20px;
+      margin-bottom: 20px;
       
     }
     
@@ -52,9 +53,15 @@
       margin-right: 10px;
     }
 
+    .favorite-counter-badge{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* Estilo para los tabs */
-      
-    .tab-label {
+  
+    mat-mdc-tab-group {
       background-color: var(--color-primary) !important; 
       color: white !important; 
     }

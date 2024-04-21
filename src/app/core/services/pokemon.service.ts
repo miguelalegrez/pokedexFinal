@@ -8,6 +8,7 @@ import { Observable, forkJoin, map, mergeMap } from 'rxjs';
 })
 export class PokemonService {
   private favoritePokemons: Pokemon[] = [];
+  favoriteCounter: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -16,19 +17,19 @@ export class PokemonService {
     return this.http.get<any>(url).pipe(
       map((data) => data.results), // Extraemos solo los resultados de la respuesta
 
+      // Mapeamos cada resultado a un Observable que emite un Pokemon
+      // Esto nos proporciona una forma eficiente de manejar múltiples solicitudes HTTP en paralelo y combinar los resultados en un solo lugar.
       mergeMap((results: any[]) => {
-        // Mapeamos cada resultado a un Observable que emite un Pokemon
-        // Esto nos proporciona una forma eficiente de manejar múltiples solicitudes HTTP en paralelo y combinar los resultados en un solo lugar.
         const pokemonObservables: Observable<Pokemon>[] = results.map(
           (result) => {
-            return this.fetchPokemonByName(result.name); // Llamada a fetchPokemonByName
+            return this.fetchPokemonByName(result.name);
           }
         );
         return forkJoin(pokemonObservables); // Combinamos los observables en uno solo
       })
     );
   }
-
+  //Método para obtener cada pokemon por su nombre y sus detalles
   fetchPokemonByName(name: string): Observable<Pokemon> {
     const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
     return this.http.get<any>(url).pipe(
@@ -44,13 +45,29 @@ export class PokemonService {
   }
 
   addFavoritePokemon(pokemon: Pokemon): void {
-    this.favoritePokemons.push(pokemon);
+    // Buscar el Pokémon en la lista de favoritos
+    const existingPokemon = this.favoritePokemons.find((element: Pokemon) => {
+      return pokemon.id === element.id;
+    });
+
+    // Si el Pokémon no está en la lista, agregarlo
+    if (!existingPokemon) {
+      this.favoritePokemons.push(pokemon);
+      this.favoriteCounter++;
+    } else {
+      console.log('El pokemon ya existe en favoritos');
+    }
   }
 
-  //Al ser una propiedad privada debo de crear un getter para el array
+  deleteFavoritePokemon(pokemon: Pokemon): void {
+    const index = this.favoritePokemons.findIndex(
+      (element: Pokemon) => pokemon.id === element.id
+    );
+    this.favoritePokemons.splice(index, 1);
+  }
+
+  // Al ser una propiedad privada debo de crear un getter para el array
   getFavoritePokemon(): Pokemon[] {
     return this.favoritePokemons;
   }
-
-  
 }

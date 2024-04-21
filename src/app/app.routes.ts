@@ -9,11 +9,12 @@ import { BerriesComponent } from './modules/berries/berries.component';
 import { ItemsComponent } from './modules/items/items.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'pokemon-list', pathMatch: 'full' },
+  { path: '', redirectTo: 'pokemon-page', pathMatch: 'full' },
   { path: 'pokemon-details', component: PokemonDetailComponent },
   { path: 'berries', component: BerriesComponent },
   { path: 'items', component: ItemsComponent },
   { path: 'pokemon-list', component: PokemonListComponent },
   { path: 'login', component: LoginPAgeComponent },
   { path: 'pokemon', component: PokemonPageComponent },
+  { path: 'pokemon-page', component: PokemonPageComponent },
 ];
