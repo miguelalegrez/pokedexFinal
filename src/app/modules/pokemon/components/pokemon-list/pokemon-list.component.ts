@@ -1,33 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonCardComponent } from '../pokemon-card/pokemon-card.component';
-import { CommonModule } from '@angular/common';
 import { Pokemon } from '../../../../core/models/pokemon.model';
-import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { PokemonService } from '../../../../core/services/pokemon.service';
-import { HttpClientModule } from '@angular/common/http';
-import { MatTabsModule } from '@angular/material/tabs';
-import { FavouritePokemonListComponent } from '../favourite-pokemon-list/favourite-pokemon-list.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatBadgeModule } from '@angular/material/badge';
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',
-  standalone: true,
   templateUrl: './pokemon-list.component.html',
-  imports: [
-    PokemonCardComponent,
-    CommonModule,
-    RouterLink,
-    FormsModule,
-    HttpClientModule,
-    MatTabsModule,
-    FavouritePokemonListComponent,
-    MatButtonModule,
-    MatIconModule,
-    MatBadgeModule,
-  ],
   styleUrls: ['./pokemon-list.component.css'],
   providers: [], // Proporcionar PokemonUtils aquí
 })

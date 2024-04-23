@@ -1,22 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Pokemon } from '../../../../core/models/pokemon.model';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { PokemonService } from '../../../../core/services/pokemon.service';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-card',
-  standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTooltipModule,
-  ],
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.css',
 })

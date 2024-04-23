@@ -1,1 +1,10 @@
-<div *ngFor="let pokemon of favoritePokemon"></div>
+<div class="grid-container">
+  <ng-container *ngIf="favoritePokemon.length === 0">
+    <p>No hay pokemons añadidos a favoritos</p>
+  </ng-container>
+  <ng-container *ngIf="favoritePokemon.length > 0">
+    <div *ngFor="let pokemon of favoritePokemon">
+      <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+    </div>
+  </ng-container>
+</div>

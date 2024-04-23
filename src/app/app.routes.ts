@@ -14,8 +14,11 @@ export const routes: Routes = [
   { path: 'berries', component: BerriesComponent },
   { path: 'items', component: ItemsComponent },
   { path: 'login', component: LoginPAgeComponent }, // Agregar una ruta para la página de inicio de sesión
-  { path: 'pokemon', component: PokemonPageComponent },
-  { path: 'pokemon-page', component: PokemonPageComponent },
+  {
+    path: 'pokemon',
+    loadChildren: () =>
+      import('./modules/pokemon/pokemon.module').then((m) => m.PokemonModule),
+  },
   {
     path: 'profile',
     component: UserProfileComponent,

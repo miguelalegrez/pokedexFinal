@@ -1,1 +1,10 @@
-<app-pokemon-list></app-pokemon-list>
+<p>User token: {{ userToken }}</p>
+<a [routerLink]="'/profile'">Profile</a>
+<mat-tab-group
+  [selectedIndex]="activeTab"
+  (selectedTabChange)="onSelectedTabChange($event)"
+>
+  <mat-tab label="list"> </mat-tab>
+  <mat-tab label="favorites"> </mat-tab>
+</mat-tab-group>
+<router-outlet> </router-outlet>

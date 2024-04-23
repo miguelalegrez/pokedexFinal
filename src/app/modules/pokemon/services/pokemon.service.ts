@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from '../models/pokemon.model';
+import { Pokemon } from '../../../core/models/pokemon.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, map, mergeMap } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class PokemonService {
   private favoritePokemons: Pokemon[] = [];
   favoriteCounter: number = 0;
